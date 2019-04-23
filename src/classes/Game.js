@@ -8,7 +8,7 @@ class Game {
     this.numOfGames = numOfGames;
     this.currentPlayerIndex = 0;
     this.players = [];
-    this.dice = new Dice(5, 5);
+    this.dice = new Dice(5);
 
     this.createPlayers(this.numPlayers);
   }
@@ -23,8 +23,7 @@ class Game {
     for (let i = 0; i < this.numOfGames; i++) {
       this.playRounds();
     }
-    this.currentPlayerIndex = (this.currentPlayerIndex + 1) % this.numPlayers;
-    return getPlayerWithMinScore();
+    return this.getPlayerWithMinScore();
   }
 
   playRounds() {
@@ -41,8 +40,9 @@ class Game {
 
   getPlayerWithMinScore() {
     let minScorePlayer;
-    for (let i = 0; i < this.players; i++) {
+    for (let i = 0; i < this.players.length; i++) {
       const currentPlayer = this.players[i];
+      console.log(currentPlayer);
       if (!minScorePlayer || currentPlayer.getScore() < minScorePlayer.getScore()) {
         minScorePlayer = currentPlayer;
       }
