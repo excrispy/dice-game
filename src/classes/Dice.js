@@ -41,8 +41,6 @@ class Dice {
       }
 
       rollsLeft = rollsLeft - numTimesToReroll;
-      numTimesToReroll = 0;
-      minHighRollValue = 6;
     }
   }
 }

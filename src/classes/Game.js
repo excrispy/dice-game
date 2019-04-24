@@ -22,6 +22,7 @@ class Game {
   playGame() {
     for (let i = 0; i < this.numOfGames; i++) {
       this.playRounds();
+      this.currentPlayerIndex = (this.currentPlayerIndex + 1) % this.numPlayers;
     }
     return this.getPlayerWithMinScore();
   }
@@ -42,7 +43,6 @@ class Game {
     let minScorePlayer;
     for (let i = 0; i < this.players.length; i++) {
       const currentPlayer = this.players[i];
-      console.log(currentPlayer);
       if (!minScorePlayer || currentPlayer.getScore() < minScorePlayer.getScore()) {
         minScorePlayer = currentPlayer;
       }
